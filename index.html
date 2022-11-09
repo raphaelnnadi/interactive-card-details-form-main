@@ -53,30 +53,30 @@
   <section class="form-section">
     <form class="form">
       <label class="title" for="cname">CARDHOLDER NAME</label><br>
-      <input type="text" placeholder="e.g. Jane Appleseed" id="card-name" required><br>
+      <input type="text" class="input" placeholder="e.g. Jane Appleseed" id="card-name" autocomplete="off" required><br>
       <p class="card-name-error"></p>
 
       <label class="title" for="cnumber">CARD NUMBER</label><br>
-      <input type="number"
+      <input type="number" class="input"
         oninput="if(this.value.length > this.maxlength) this.value=this.value.slice(0,this.maxlength)"
-        placeholder="e.g 1234 5678 9123 0000" minlength="'16" maxlength="16" id="card-number" required><br>
+        placeholder="e.g 1234 5678 9123 0000" minlength="'16" maxlength="16" id="card-number" autocomplete="off" required><br>
       <p class="card-number-error"></p>
 
       <div class="row">
         <div class="exp">
           <label class="title" for="expiry-date">EXP. DATE (MM/YY)</label><br>
-          <input type="number"
+          <input type="number" class="input"
             oninput="if(this.value.length > this.maxlength) this.value=this.value.slice(0,this.maxlength)"
-            placeholder="MM" minlength="2" maxlength="2" id="month" required>
-          <input type="number"
+            placeholder="MM" minlength="2" maxlength="2" id="month" autocomplete="off" required>
+          <input type="number" class="input"
             oninput="if(this.value.length > this.maxlength) this.value=this.value.slice(0,this.maxlength)"
-            placeholder="YY" minlength="2" maxlength="2" id="year" required>
+            placeholder="YY" minlength="2" maxlength="2" id="year" autocomplete="off" required>
         </div>
         <div class="cv">
           <label class="title" for="cvc">CVC</label><br>
-          <input type="number"
+          <input type="number" class="input"
             oninput="if(this.value.length > this.maxlength) this.value=this.value.slice(0,this.maxlength)"
-            placeholder="e.g 123" minlength="3" maxlength="3" id="cvc" required>
+            placeholder="e.g 123" minlength="3" maxlength="3" id="cvc" autocomplete="off" required>
         </div>
       </div>
       <div class="date-cvc-errors">
