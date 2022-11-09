@@ -12,6 +12,7 @@ const cardNumberField = document.getElementById('card-number');
 const cardMonthField = document.getElementById('month');
 const cardYearField = document.getElementById('year');
 const cardCvcField = document.getElementById('cvc');
+const inputDetails = document.querySelectorAll('.input');
 
 const confirmButton = document.querySelector('.confirm-btn');
 const completeButton = document.querySelector('.complete-btn');
@@ -51,39 +52,19 @@ const setCompleteButton = function () {
 const handleSubmit = function (e) {
   e.preventDefault();
   if (!cardNameField.value) {
-    cardNameField.classList.add('error');
-    cardNameField.parentElement.classList.add('error_message');
-  } else {
-    cardNameField.classList.remove('error');
-    cardNameField.parentElement.classList.remove('error_message');
+    cardNameError.innerHTML = 'Please enter your name';
   }
   if (!cardNumberField.value) {
-    cardNumberField.classList.add('error');
-    cardNumberField.parentElement.classList.add('error_message');
-  } else {
-    cardNumberField.classList.remove('error');
-    cardNumberField.parentElement.classList.remove('error_message');
-  }
+    cardNumberError.innerHTML = 'Please enter your card number';
+  } 
   if (!cardMonthField.value) {
-    cardMonthField.classList.add('error');
-    cardMonthField.parentElement.classList.add('error_message');
-  } else {
-    cardMonthField.classList.remove('error');
-    cardMonthField.parentElement.classList.remove('error_message');
+    monthError.innerHTML = 'Please enter month';
   }
   if (!cardYearField.value) {
-    cardYearField.classList.add('error');
-    cardYearField.parentElement.classList.add('error_message');
-  } else {
-    cardYearField.classList.remove('error');
-    cardYearField.parentElement.classList.remove('error_message');
+    yearError.innerHTML = 'Please enter year';
   }
   if (!cardCvcField.value) {
-    cardCvcField.classList.add('error');
-    cardCvcField.parentElement.classList.add('error_message');
-  } else {
-    cardCvcField.classList.remove('error');
-    cardCvcField.parentElement.classList.remove('error_message');
+    cvcError.innerHTML = 'Please enter cvc';
   }
   if (
     cardNameField.value &&
@@ -104,108 +85,3 @@ cardYearField.addEventListener('keyup', setCardYear);
 cardCvcField.addEventListener('keyup', setCardCvc);
 confirmButton.addEventListener('click', handleSubmit);
 completeButton.addEventListener('click', setCompleteButton);
-
-// cardNameField.addEventListener('keyup', function (e) {
-//   e.preventDefault();
-//   let cardNameValue = cardNameField.value;
-//   let key = e.key;
-//   let keyletters = key.match(/^[A-Za-z ]*$/);
-
-//   if (cardNameValue === '') {
-//     cardNameError.innerHTML = 'Please enter your name';
-//   } else if (keyletters) {
-//     cardName.innerHTML = cardNameValue;
-//   } else {
-//     cardNameField.setAttribute('disabled', '');
-//     cardNameError.innerHTML = 'Wrong format, letters only!';
-//   }
-// });
-
-// cardNumberField.addEventListener('keyup', function (e) {
-//   let cardNumberValue = cardNumberField.value;
-//   let key = e.key;
-//   let keyNumbers = key.match(/^[0-9 ]*$/);
-
-//   if (cardNumberValue.length === 0) {
-//     cardNumberError.innerHTML = 'Please enter your card number';
-//   } else if (keyNumbers) {
-//     cardNumber.innerHTML = cardNumberValue;
-//   } else if (key === 'Backspace') {
-//     cardNumberField.setAttribute('enabled', '');
-//   } else {
-//     cardNumberField.setAttribute('disabled', '');
-//     cardNumberError.innerHTML = 'Wrong format, numbers only!';
-//   }
-// });
-
-// cardNumberField.addEventListener('input', function (e) {
-//   e.target.value = e.target.value
-//     .replace(/[^\dA-Z]/g, '')
-//     .replace(/(.{4})/g, '$1 ')
-//     .trim();
-// });
-
-// cardMonthField.addEventListener('input', function (e) {
-//   let value = e.target.value;
-//   let valueNumbers = value.match(/^[0-9 ]*$/);
-
-//   if (value === '') {
-//     monthError.innerHTML = 'Please enter month';
-//   } else if (valueNumbers) {
-//     cardMonth.innerHTML = valueNumbers;
-//   } else {
-//     monthError.innerHTML = 'Please enter month';
-//     cardMonthField.setAttribute('disabled', '');
-//   }
-// });
-
-// cardYearField.addEventListener('input', function (e) {
-//   let value = e.target.value;
-//   let valueNumbers = value.match(/^[0-9 ]*$/);
-
-//   if (value === '') {
-//     yearError.innerHTML = 'Please enter year';
-//   } else if (valueNumbers) {
-//     cardYear.innerHTML = valueNumbers;
-//   } else {
-//     yearError.innerHTML = 'Please enter year';
-//     cardYearField.setAttribute('disabled', '');
-//   }
-// });
-
-// cardCvcField.addEventListener('input', function (e) {
-//   let value = e.target.value;
-//   let valueNumbers = value.match(/^[0-9 ]*$/);
-
-//   if (value === '') {
-//     cvcError.innerHTML = 'Please enter cvc';
-//   } else if (valueNumbers) {
-//     cardCvc.innerHTML = valueNumbers;
-//   } else {
-//     cvcError.innerHTML = 'Please enter cvc';
-//     cardCvcField.setAttribute('disabled', '');
-//   }
-// });
-
-// confirmButton.addEventListener('click', function () {
-//   if (cardNameField.value.length <= 0) {
-//     cardNameError.innerHTML = 'Please enter your name';
-//   } else if (cardNumberField.value.length <= 0) {
-//     cardNumberError.innerHTML = 'Please enter your card number';
-//   } else if (cardMonthField.value.length <= 0) {
-//     monthError.innerHTML = 'Please enter month';
-//   } else if (cardYearField.value.length <= 0) {
-//     yearError.innerHTML = 'Please enter year';
-//   } else if (cardCvcField.value.length <= 0) {
-//     cvcError.innerHTML = 'Please enter cvc';
-//   } else {
-//     completeMessage.style.display = 'block';
-//     form.style.display = 'none';
-//   }
-// });
-
-// completeButton.addEventListener('click', function () {
-//   completeMessage.style.display = 'none';
-//   completeButton.style.width = '100%';
-//   form.style.display = 'block';
-// });
